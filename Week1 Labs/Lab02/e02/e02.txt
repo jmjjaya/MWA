@@ -1,0 +1,5 @@
+01. The main advantage to using setImmediate() over setTimeout() is setImmediate() will always be executed before any timers if scheduled within an I/O cycle, independently of how many timers are present.
+
+02. process.nextTick() fires immediately on the same phase but, setImmediate() fires on the following iteration or 'tick' of the event loop
+
+03. 
