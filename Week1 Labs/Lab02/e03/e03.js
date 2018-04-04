@@ -8,17 +8,28 @@ function slow(callback) {
 }
 
 function exec(fn) {
-
-    var done = function (doneFn) {
-        process.nextTick(doneFn, fn((a, b) => {
-            if (a === null) {
-                return b;
+    const result = fn((a, b) => {
+        if (a === null) {
+            return b;
+        }
+        return a;
+    });
+    return {
+        done: function (doneFn) {
+            if (result != "Error") {
+                process.nextTick(doneFn, result);
             }
-            return a;
-        }));
+            return this;
+        },
+        fail: function (failFn) {
+            if (result === "Error") {
+                process.nextTick(failFn, result);
+            }
+        }
     };
-    return this;
 }
-exec(slow).done(function (data) {
+exec(slow).done((data) => {
     console.log(data);
+}).fail((error) => {
+    console.log("Error: " + error);
 });
