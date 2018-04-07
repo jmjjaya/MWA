@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Users</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= header1 %></h1>
+    <table class="table table-striped table-bordered table-responsive">
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>Name</td>
+            <td>UserName</td>
+            <td>Email</td>
+            <td>City</td>
+            <td>Zip Code</td>
+            <td>Latitude</td>
+            <td>Longitude</td>
+            <td>Website</td>
+        </tr>
+        </thead>
+        <% userslist.forEach(function(p,i1){%>
+        <tr>
+            <td><%=userslist[i1].id%></td>
+            <td><%=userslist[i1].name%></td>
+            <td><%=userslist[i1].username%></td>
+            <td><%=userslist[i1].email%></td>
+            <td><%=userslist[i1].address.city%></td>
+            <td><%=userslist[i1].address.zipcode%></td>
+            <td><%=userslist[i1].address.geo.lat%></td>
+            <td><%=userslist[i1].address.geo.lng%></td>
+            <td><%=userslist[i1].website%></td>
+        </tr>
+        <% }); %>
+        </table>
+  </body>
+</html>
+
+
+
+
