@@ -1,0 +1,3 @@
+use library;
+db.books.insert({'ISBN':'978-1-5011-6121-3', 'author':'Bob Both', 'tag':['sci','tm'], checkout:{'date': new Date('2018-5-13'), 'by':'986061'}});
+db.students.insert({'id':'986061', 'name':'Jeewan Kadangemage', 'email':'jeewan.kadangamage@gmail.com'});
